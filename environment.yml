@@ -1,0 +1,103 @@
+name: pcc11901_rnaseq
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  # === Core Python ===
+  - python=3.11
+  - pip
+
+  # === Bioinformatics Tools (CLI) ===
+  # QC & Preprocessing
+  - fastqc
+  - multiqc
+  - fastp
+
+  # rRNA Removal (requires Rosetta on Apple Silicon)
+  - sortmerna
+
+  # Alignment & Quantification
+  - salmon
+  - bowtie2
+  - samtools
+
+  # Coverage & Visualization
+  - deeptools
+  - bedtools
+
+  # === Python Data Science ===
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+
+  # Visualization
+  - matplotlib
+  - seaborn
+  - plotly
+
+  # Progress & Parallelization
+  - tqdm
+  - joblib
+
+  # Jupyter
+  - jupyterlab
+  - ipywidgets
+
+  # === R and Bioconductor ===
+  - r-base>=4.3
+  - r-tidyverse
+  - r-ggplot2
+  - r-pheatmap
+  - r-rcolorbrewer
+  - r-plotly
+
+  # Bioconductor packages
+  - bioconductor-deseq2
+  - bioconductor-edger
+  - bioconductor-tximport
+  - bioconductor-complexheatmap
+  - bioconductor-enhancedvolcano
+
+  # === Utility ===
+  - pigz  # Parallel gzip for faster compression
+  - parallel  # GNU parallel for batch processing
+
+  # === pip packages ===
+  - pip:
+    - kaleido  # For Plotly static image export
+
+# ============================================
+# Installation Notes for Apple M2 Max
+# ============================================
+#
+# APPLE SILICON: Some bioconda tools (like SortMeRNA) lack ARM64 builds.
+# Use Rosetta emulation if native installation fails:
+#
+#   CONDA_SUBDIR=osx-64 conda env create -f environment.yml
+#
+# Standard installation (try first):
+#   conda env create -f environment.yml
+#
+# Activate:
+#   conda activate pcc11901_rnaseq
+#
+# Update existing:
+#   conda env update -f environment.yml --prune
+#
+# Additional R packages to install after environment creation:
+#   R -e 'if (!require("BiocManager", quietly = TRUE)) install.packages("BiocManager"); BiocManager::install(c("clusterProfiler", "enrichplot", "GOSemSim", "goseq", "maSigPro"))'
+#
+# Hardware optimization (64GB RAM, 12 cores):
+#   - SortMeRNA: Use 3-4 threads max (~15GB RAM per thread)
+#   - Salmon: Use 8-12 threads
+#   - Bowtie2: Use 8 threads
+#   - fastp: Use 8 threads
+#   - Python joblib: n_jobs=8
+#
+# SortMeRNA database setup (run once after install):
+#   sortmerna --ref $CONDA_PREFIX/share/sortmerna/rRNA_databases/silva-bac-16s-id90.fasta \
+#             --ref $CONDA_PREFIX/share/sortmerna/rRNA_databases/silva-bac-23s-id98.fasta \
+#             --index 1

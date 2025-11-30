@@ -7,5 +7,41 @@
 # Keep the checksum file for reference
 !Data/AMO17076_md5sum.txt
 
+# Alignment files (large)
+*.bam
+*.bam.bai
+*.sam
+
+# Intermediate directories (can be regenerated)
+02_trimmed/
+03_merged/
+04_rRNA_filtered/
+06_alignment/bam/
+
+# Keep bigWig files (small, useful for visualization)
+# 06_alignment/bigwig/ is NOT ignored
+
+# Logs (optional - uncomment to exclude)
+# logs/
+
+# Conda/Python
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
+*.egg-info/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
 # macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
