@@ -1,0 +1,11 @@
+# Large sequencing data files
+*.fastq.gz
+*.fastq
+*.fq.gz
+*.fq
+
+# Keep the checksum file for reference
+!Data/AMO17076_md5sum.txt
+
+# macOS
+.DS_Store
