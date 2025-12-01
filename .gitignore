@@ -17,7 +17,9 @@
 03_merged/
 04_rRNA_filtered/
 06_alignment/bam/
-DB/
+
+SILVA_138.1_LSURef_NR99_tax_silva
+SILVA_138.1_SSURef_NR99_tax_silva.fasta
 
 # Keep bigWig files (small, useful for visualization)
 # 06_alignment/bigwig/ is NOT ignored
