@@ -27,6 +27,9 @@ dependencies:
   - deeptools
   - bedtools
 
+  # Transcriptome extraction
+  - gffread
+
   # === Python Data Science ===
   - numpy
   - pandas
@@ -45,6 +48,9 @@ dependencies:
   # Jupyter
   - jupyterlab
   - ipywidgets
+
+  # R-Python bridge
+  - rpy2
 
   # === R and Bioconductor ===
   - r-base>=4.3
