@@ -53,7 +53,8 @@ dependencies:
   - rpy2
 
   # === R and Bioconductor ===
-  - r-base>=4.3
+  # Pin to 4.3.x to avoid gfortran conflicts with 4.4.x
+  - r-base>=4.3,<4.4
   - r-tidyverse
   - r-ggplot2
   - r-pheatmap
@@ -79,19 +80,24 @@ dependencies:
 # Installation Notes for Apple M2 Max
 # ============================================
 #
-# APPLE SILICON: Some bioconda tools (like SortMeRNA) lack ARM64 builds.
-# Use Rosetta emulation if native installation fails:
+# APPLE SILICON REQUIREMENT:
+# Several bioconda packages (SortMeRNA, some R packages) lack native ARM64 builds.
+# YOU MUST create this environment in x86_64 (Rosetta) mode to avoid architecture
+# conflicts between packages.
 #
+# REQUIRED installation command:
 #   CONDA_SUBDIR=osx-64 conda env create -f environment.yml
 #
-# Standard installation (try first):
-#   conda env create -f environment.yml
+# If you already have a broken environment, remove and recreate:
+#   conda deactivate
+#   conda env remove -n pcc11901_rnaseq
+#   CONDA_SUBDIR=osx-64 conda env create -f environment.yml
 #
 # Activate:
 #   conda activate pcc11901_rnaseq
 #
-# Update existing:
-#   conda env update -f environment.yml --prune
+# Update existing (keep in x86_64 mode):
+#   CONDA_SUBDIR=osx-64 conda env update -f environment.yml --prune
 #
 # Additional R packages to install after environment creation:
 #   R -e 'if (!require("BiocManager", quietly = TRUE)) install.packages("BiocManager"); BiocManager::install(c("clusterProfiler", "enrichplot", "GOSemSim", "goseq", "maSigPro"))'
