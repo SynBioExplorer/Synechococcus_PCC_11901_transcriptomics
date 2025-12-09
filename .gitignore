@@ -16,16 +16,32 @@
 02_trimmed/
 03_merged/
 04_rRNA_filtered/
-06_alignment/bam/
+06_alignment/
 
+# QC outputs (can be regenerated)
+01_QC/
+
+# Salmon outputs (can be regenerated)
+05_salmon/
+
+# Databases (large, external)
+DB/
 SILVA_138.1_LSURef_NR99_tax_silva
 SILVA_138.1_SSURef_NR99_tax_silva.fasta
+
+# Large genome-derived files (can be regenerated from genome + GTF)
+PCC_11901_annotated genome/transcriptome.fa
+PCC_11901_annotated genome/gentrome.fa
+PCC_11901_annotated genome/*.fai
 
 # Keep bigWig files (small, useful for visualization)
 # 06_alignment/bigwig/ is NOT ignored
 
-# Logs (optional - uncomment to exclude)
-# logs/
+# Logs (sample-specific logs are large)
+logs/*.log
+
+# Keep helper scripts
+!logs/run_sortmerna_fast.sh
 
 # Conda/Python
 *.pyc
