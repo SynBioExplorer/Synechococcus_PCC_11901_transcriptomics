@@ -1,0 +1,2 @@
+Gene_set,Term,Overlap,P-value,Adjusted P-value,Odds Ratio,Combined Score,Genes,Pathway_Name
+gs_ind_0,HEMESYN2-PWY,1/4,0.03105462457187369,0.03105462457187369,55.36544850498339,192.22925478549166,FEK30_RS14255,heme b biosynthesis II (oxygen-independent)

@@ -75,6 +75,7 @@ dependencies:
   # === pip packages ===
   - pip:
     - kaleido  # For Plotly static image export
+    - gseapy   # Gene Set Enrichment Analysis
 
 # ============================================
 # Installation Notes for Apple M2 Max

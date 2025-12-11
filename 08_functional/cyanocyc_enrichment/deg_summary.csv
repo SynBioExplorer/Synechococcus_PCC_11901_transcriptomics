@@ -1,0 +1,18 @@
+Group,Comparison,Up,Down,Total
+Group 1 - Nutrients,Ammonia,32,48,80
+Group 1 - Nutrients,Glycerol,168,261,429
+Group 1 - Nutrients,High Nitrogen,236,98,334
+Group 1 - Nutrients,Low Nitrogen,7,15,22
+Group 1 - Nutrients,High Phosphate,46,39,85
+Group 1 - Nutrients,Low Phosphate,2,26,28
+Group 1 - Nutrients,Urea,37,90,127
+Group 2 - Environmental,Atmospheric CO2,76,131,207
+Group 2 - Environmental,High CO2,154,180,334
+Group 2 - Environmental,H2O2,29,5,34
+Group 2 - Environmental,High NaCl,714,658,1372
+Group 2 - Environmental,High Temp,128,219,347
+Group 2 - Environmental,High Light,120,186,306
+Group 2 - Environmental,Low Light,334,429,763
+Group 3 - Circadian,T2 Dark vs T1,879,869,1748
+Group 3 - Circadian,T3 Light vs T2,747,747,1494
+Group 3 - Circadian,T4 Dark vs T3,797,788,1585
